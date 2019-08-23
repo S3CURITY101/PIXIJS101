@@ -1,4 +1,5 @@
 Start PIXIJS
+npm init -y
 
 using npm install
 //used sudo command if you are not in the main root path /
