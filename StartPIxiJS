@@ -1,0 +1,26 @@
+Start PIXIJS
+
+using npm install
+//used sudo command if you are not in the main root path /
+
+sudo npm install pixi.js --save
+
+for development:
+
+sudo npm install browser-sync
+
+lodash.map v4.6.0
+
+The lodash method _.map exported as a Node.js module.
+Installation
+
+Using npm:
+
+$ {sudo -H} npm i -g npm
+$ npm i --save lodash.map
+
+//Replace "start" content to:
+"browser-sync start --server --files '*.js'"
+
+
+

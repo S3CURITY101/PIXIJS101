@@ -1,0 +1,127 @@
+const log = console.log;
+const app = new PIXI.Application();
+document.body.appendChild(app.view);
+
+let score = 0;
+const  scoreText = new PIXI.Text('Score: 0');
+
+scoreText.style = new PIXI.TextStyle({
+    fill: 0xFFFFFF
+});
+
+// app.stage.addChild(scoreText);
+
+// const setScore = value => {
+//     score = value;
+//     scoreText.setText("Score: " + score);
+//     scoreText.x = app.screen.width - scoreText.width;
+// };
+
+
+
+const getPotatoButton = (image, mp3,  callback, x=0, y=0, rotation=0,scale=1)=>
+{
+
+    const button = PIXI.Sprite.from(image);
+    const sound = new Howl({
+        src: [mp3]
+    })
+    button.anchor.set(0.5);
+    button.interactive = true;
+    button.x = x;
+    button.y = y;
+    button.rotation = rotation;
+    button.buttonMode = true;
+    button.scale.set(scale);
+    // button.on('pointerdown', event => {
+    //     sound.play();
+    //     button.parent.removeChild(button);
+    //     if(button.hideID)
+    //     {
+    //         clearTimeout(button.hideID);
+    //     }
+    //     callback();
+    // });
+    // button.getReadyToHide = () =>
+    // {
+    //     button.hideID = setTimeout(()=>
+    //     {
+    //         log("You Missed!");
+    //         button.parent.removeChild(button);
+    //     }, 1000);
+    // }
+};
+
+potatoButton = getPotatoButton('../images/g1.png',
+    '../mp3/burstsound.mp3',
+    undefined,
+   100, 100, 0, 0.3
+);
+app.stage.addChild(potatoButton);
+
+// const randomNumberFromRange = (start, end) =>
+// {
+//     const range = end - start;
+//     const random = Math.random() * range;
+//     return start + random;
+// }
+
+// const getRandomPotatoButtonProperties = callback =>
+// {
+//     const randomX = randomNumberFromRange(300, 700);
+//     const randomY = randomNumberFromRange(100, 300);
+//     const randomRotation = randomNumberFromRange(0,360);
+//     const randomScale = randomNumberFromRange(0.8, 1.2);
+//     const potatoButtonProps = {
+//         image: '../images/g1.png',
+//         mp3: '../mp3/burstsound.mp3',
+//         callback,
+//         x: randomX,
+//         y: randomY,
+//         rotation: randomRotation,
+//         scale: 0.2
+//     };
+//     return potatoButtonProps;
+// };
+
+
+
+// const onPotatoClicked = () => setScore(score + 100);
+
+// const potatoButtonProps = _.map(
+//     new Array(5),
+//     () => getRandomPotatoButtonProperties()
+// );
+
+// const buttons = _.map(potatoButtonProps,
+//  item => 
+//  {
+//         return getPotatoButton(
+//             item.image,
+//             item.mp3,
+//             item.callback,
+//             item.x,
+//             item.y,
+//             item.rotation,
+//             item.scale
+//         );
+//     });
+
+
+
+// const intervalID = setInterval(() =>
+// {
+//     if(buttons.length > 0)
+//     {
+//         log("Next Button..")
+//         const nextButton = buttons.pop();
+//         app.stage.addChild(nextButton);
+//         nextButton.getReadyToHide();
+//     }
+//     else
+//     {
+//         log("GAME OVER!!!");
+//         clearInterval(intervalID);
+//     }
+// }, 1 * 1000);
+

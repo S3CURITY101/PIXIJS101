@@ -1,0 +1,50 @@
+Start PIXIJS
+Picture Click and sound play
+
+
+const log = console.log;
+const app = new PIXI.Application();
+document.body.appendChild(app.view);
+
+
+const makeImageButton = (image, mp3, x=0, y=0)=>
+{
+    
+    const button = PIXI.Sprite.from(image);
+    const sound = new Howl({
+        src: [mp3]
+    });
+    button.interactive = true;
+    button.on('pointerdown', event => sound.play());
+    app.stage.addChild(button);
+    button.x = x;
+    button.y = 0;
+    return button;
+
+};
+
+makeImageButton(
+    '../images/decemberave.jpg',
+    '../mp3/December Avenue - Sa Dulo Ng Walang Hanggan (SNNP Piano Version - Official Music Video) ( 160kbps ).mp3',
+  
+)
+makeImageButton(
+    '../images/exb-aiu-ai.jpg',
+    '../mp3/Sama-Sama — Ex Battalion _ S.O.N.S (Sons Of Nanay Sabel) OST _Official Music Video_ ( 160kbps ).mp3',
+   -100,
+   100
+)
+// makeImageButton(
+//     '../images/gloc9.jpg',
+//     '../mp3/Gloc-9 feat. Al James - Lagi (Official Music Video) ( 160kbps ).mp3',
+//     400,
+//     250
+// )
+
+//Sample Hide a picture//
+
+// potatoButton = getPotatoButton('images/g1.png',
+//     'mp3/Gloc-9 feat. Al James - Lagi (Official Music Video) ( 160kbps ).mp3',
+//     undefined,
+//     100, 100, 0, 0.3);
+// app.stage.addChild(potatoButton);
