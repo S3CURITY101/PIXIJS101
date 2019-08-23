@@ -8,7 +8,7 @@ sudo npm install pixi.js --save
 
 for development:
 
-sudo npm install browser-sync
+sudo npm install browser-sync --save
 
 lodash.map v4.6.0
 
